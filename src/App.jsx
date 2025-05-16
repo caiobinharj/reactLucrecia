@@ -29,10 +29,9 @@ const HeartApp = () => {
                     <HeartsWrapper>
                         <HeartImage src="/coracaoLucrecia.jpg" alt="Corazón de Lucrecia" />
                         {showHearts && (
-                            <HeartImage
+                            <RightHeartImage
                                 src="/coracaoCaio.jpg"
                                 alt="Mi corazón"
-                                className="right-heart"
                             />
                         )}
                     </HeartsWrapper>
@@ -40,7 +39,6 @@ const HeartApp = () => {
 
                 <MysteryButton onClick={() => setShowHearts(true)}>
                     ¿Qué hace ese botón debajo de corazón solitario?
-
                 </MysteryButton>
 
                 {showHearts && (
@@ -151,11 +149,11 @@ const HeartImage = styled.img`
     width: 160px;
     height: 160px;
     object-fit: contain;
+`;
 
-    /* Esta classe é usada dinamicamente no JSX quando showHearts é true */
-    &.right-heart {
-        margin-left: -45px;
-    }
+// Componente específico para o coração direito com o estilo necessário
+const RightHeartImage = styled(HeartImage)`
+    margin-left: -45px;
 `;
 
 const MysteryButton = styled.button`
